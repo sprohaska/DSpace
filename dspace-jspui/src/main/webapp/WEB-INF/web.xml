@@ -453,7 +453,12 @@
     <servlet-name>shibboleth-login</servlet-name>
     <servlet-class>org.dspace.app.webui.servlet.ShibbolethServlet</servlet-class>
   </servlet>
-  
+
+  <servlet>
+    <servlet-name>keycloak-login</servlet-name>
+    <servlet-class>org.dspace.app.webui.servlet.KeycloakServlet</servlet-class>
+  </servlet>
+
   <servlet>
   	<servlet-name>json</servlet-name>
   	<servlet-class>org.dspace.app.webui.servlet.JSONServlet</servlet-class>
@@ -483,7 +488,12 @@
     <servlet-name>shibboleth-login</servlet-name>
     <url-pattern>/shibboleth-login</url-pattern>
   </servlet-mapping>
- 
+
+  <servlet-mapping>
+    <servlet-name>keycloak-login</servlet-name>
+    <url-pattern>/keycloak-login</url-pattern>
+  </servlet-mapping>
+
   <!-- Servlet Mappings -->
 
   <servlet-mapping>

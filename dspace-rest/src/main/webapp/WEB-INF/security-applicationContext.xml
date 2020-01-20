@@ -24,6 +24,7 @@
         <security:filter-chain-map path-type="ant">
             <security:filter-chain pattern="/login" filters="sif,passwordLoginAuthenticationFilter"/>
             <security:filter-chain pattern="/shibboleth-login" filters="sif,passwordLoginAuthenticationFilter"/>
+            <security:filter-chain pattern="/keycloak-login" filters="sif,passwordLoginAuthenticationFilter"/>
             <security:filter-chain pattern="/logout" filters="sif,logoutFilter" />
             <security:filter-chain pattern="/**" filters="sif"/>
         </security:filter-chain-map>

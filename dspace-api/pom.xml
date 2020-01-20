@@ -720,6 +720,13 @@
             <artifactId>json</artifactId>
             <version>20180130</version>
         </dependency>
+
+        <!-- For KeycloakAuthentication -->
+        <!-- <dependency> -->
+        <!--    <groupId>org.keycloak</groupId> -->
+        <!--    <artifactId>keycloak&#45;core</artifactId> -->
+        <!--    <version>8.0.1</version> -->
+        <!-- </dependency> -->
     </dependencies>
 
 </project>

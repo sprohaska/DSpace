@@ -16,6 +16,10 @@ import org.apache.log4j.Logger;
 import org.dspace.authenticate.factory.AuthenticateServiceFactory;
 import org.dspace.authorize.AuthorizeException;
 
+// When importing `org.keycloak`, Tomcat fails to load DSpace webapp due to
+// infinite recursion when parsing annotations.
+//import org.keycloak.KeycloakSecurityContext;
+
 import org.dspace.content.MetadataField;
 import org.dspace.content.MetadataSchema;
 import org.dspace.content.NonUniqueMetadataException;
@@ -60,8 +64,14 @@ public class KeycloakAuthentication implements AuthenticationMethod
         String realm,
         HttpServletRequest request
     ) throws SQLException {
-        log.warn("TODO KeycloakAuthentication.authenticate()");
         System.out.println("TODO KeycloakAuthentication.authenticate()");
+        // KeycloakSecurityContext keycloak = (KeycloakSecurityContext)request.getAttribute(KeycloakSecurityContext.class.getName());
+        // if (keycloak != null) {
+        //     System.out.println("TODO keycloak:" + keycloak.toString());
+        // } else {
+        //     System.out.println("TODO no keycloak.");
+        // }
+
         return AuthenticationMethod.NO_SUCH_USER;
     }
 

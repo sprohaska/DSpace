@@ -65,6 +65,12 @@ public class KeycloakAuthentication implements AuthenticationMethod
         HttpServletRequest request
     ) throws SQLException {
         System.out.println("TODO KeycloakAuthentication.authenticate()");
+        Enumeration<String> names = request.getAttributeNames();
+        while (names.hasMoreElements()) {
+            String key = names.nextElement();
+            Object val = request.getAttribute(key);
+            System.out.println("TODO keycloak: " + key + " => " + val.toString());
+        }
         // KeycloakSecurityContext keycloak = (KeycloakSecurityContext)request.getAttribute(KeycloakSecurityContext.class.getName());
         // if (keycloak != null) {
         //     System.out.println("TODO keycloak:" + keycloak.toString());

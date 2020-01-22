@@ -18,7 +18,7 @@ import org.dspace.authorize.AuthorizeException;
 
 // When importing `org.keycloak`, Tomcat fails to load DSpace webapp due to
 // infinite recursion when parsing annotations.
-//import org.keycloak.KeycloakSecurityContext;
+import org.keycloak.KeycloakSecurityContext;
 
 import org.dspace.content.MetadataField;
 import org.dspace.content.MetadataSchema;
@@ -71,12 +71,23 @@ public class KeycloakAuthentication implements AuthenticationMethod
             Object val = request.getAttribute(key);
             System.out.println("TODO keycloak: " + key + " => " + val.toString());
         }
-        // KeycloakSecurityContext keycloak = (KeycloakSecurityContext)request.getAttribute(KeycloakSecurityContext.class.getName());
-        // if (keycloak != null) {
-        //     System.out.println("TODO keycloak:" + keycloak.toString());
-        // } else {
-        //     System.out.println("TODO no keycloak.");
-        // }
+        System.out.println("TODO getAttribute()");
+        Object val = request.getAttribute(KeycloakSecurityContext.class.getName());
+        System.out.println("TODO getAttribute() val: " + val.toString());
+        try {
+            KeycloakSecurityContext keycloak = (KeycloakSecurityContext) val;
+            System.out.println("TODO getAttribute() keycloak:" + keycloak.toString());
+            if (keycloak != null) {
+                System.out.println("TODO keycloak:" + keycloak.toString());
+                System.out.println("TODO keycloak.idToken.subject: " + keycloak.getIdToken().getSubject());
+                System.out.println("TODO keycloak.idToken.email: " + keycloak.getIdToken().getEmail());
+                System.out.println("TODO keycloak.idToken.name: " + keycloak.getIdToken().getName());
+            } else {
+                System.out.println("TODO no keycloak.");
+            }
+        } catch (Exception e) {
+            System.out.println("TODO exception: " + e.toString());
+        }
 
         return AuthenticationMethod.NO_SUCH_USER;
     }

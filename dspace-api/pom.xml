@@ -722,11 +722,12 @@
         </dependency>
 
         <!-- For KeycloakAuthentication -->
-        <!-- <dependency> -->
-        <!--    <groupId>org.keycloak</groupId> -->
-        <!--    <artifactId>keycloak&#45;core</artifactId> -->
-        <!--    <version>8.0.1</version> -->
-        <!-- </dependency> -->
+        <dependency>
+           <groupId>org.keycloak</groupId>
+           <artifactId>keycloak-core</artifactId>
+           <version>8.0.1</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>

@@ -721,12 +721,17 @@
             <version>20180130</version>
         </dependency>
 
-        <!-- For KeycloakAuthentication -->
+        <!-- For Keycloak integration
+        Scope `provided` is necessary to avoid problems when loading WARs in
+        Tomcat.  The Keycloak Valve must be installed separately as
+        described in the Keycloak documentation on Java Adapters,
+        <https://www.keycloak.org/docs/latest/securing_apps/index.html#_tomcat_adapter>.
+        -->
         <dependency>
            <groupId>org.keycloak</groupId>
            <artifactId>keycloak-core</artifactId>
            <version>8.0.1</version>
-            <scope>provided</scope>
+           <scope>provided</scope>
         </dependency>
     </dependencies>
 
